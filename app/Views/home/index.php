@@ -17,6 +17,21 @@
 	<link rel="stylesheet" href="assets/css/tiny-slider.css" />
 	<link rel="stylesheet" href="assets/css/animate.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+@media only screen and (max-width: 991px) {
+    .header-btn {
+        display: block !important;
+        position: absolute;
+        right: 70px; 
+        top: 25px;
+        z-index: 99;
+    }
+    .header-btn .main-btn {
+        padding: 8px 20px !important;
+        font-size: 14px !important;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -54,51 +69,45 @@
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-12">
-						<nav class="navbar navbar-expand-lg">
-							<a class="navbar-brand" href="index.html">
-								<img src="admin/img/GA.png" alt="Logo" style="width: 65px; height: auto" />
-							</a>
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-								data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-								aria-expanded="false" aria-label="Toggle navigation">
-								<span class="toggler-icon"></span>
-								<span class="toggler-icon"></span>
-								<span class="toggler-icon"></span>
-							</button>
+                    <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="admin/img/GA.png" alt="Logo" style="width: 65px; height: auto" />
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
 
-							<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-								<div class="ms-auto">
-									<ul id="nav" class="navbar-nav ms-auto">
-										<li class="nav-item">
-											<a class="page-scroll active" href="#home">Beranda</a>
-										</li>
-										<li class="nav-item">
-											<a class="page-scroll" href="#about">Tentang</a>
-										</li>
-								
-										<li class="nav-item">
-											<a class="page-scroll" href="#harga">Harga</a>
-										</li>
-										<li class="nav-item">
-											<a class="page-scroll" href="#karya">Karya</a>
-										</li>
-									</ul>
-								</div>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <div class="ms-auto">
+                                    <ul id="nav" class="navbar-nav ms-auto">
+                                        <li class="nav-item"><a class="page-scroll active" href="#home">Beranda</a></li>
+                                        <li class="nav-item"><a class="page-scroll" href="#about">Tentang</a></li>
+                                        <li class="nav-item"><a class="page-scroll" href="#harga">Harga</a></li>
+                                        <li class="nav-item"><a class="page-scroll" href="#karya">Karya</a></li>
+                                        
+                                        <li class="nav-item d-lg-none">
+                                            <?php if (isset($is_logged_in) && $is_logged_in): ?>
+                                                <a href="<?= base_url('anggota/profil') ?>" class="main-btn btn-hover btn-primary w-100 text-center mt-3">Portal Anda</a>
+                                            <?php else: ?>
+                                                <a href="<?= base_url('login') ?>" class="main-btn btn-hover btn-success w-100 text-center mt-3">Login</a>
+                                            <?php endif; ?>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
-							</div>
-							<!-- navbar collapse -->
-                            <div class="nav-collapse header-btn">
+                            <div class="header-btn d-none d-lg-block">
                                 <?php if (isset($is_logged_in) && $is_logged_in): ?>
-                                    <a href="<?= base_url('anggota/profil') ?>" class="main-btn btn-hover btn-primary">
-                                         Portal Anda
-                                    </a>
+                                    <a href="<?= base_url('anggota/profil') ?>" class="main-btn btn-hover btn-primary">Portal Anda</a>
                                 <?php else: ?>
-                                    <a href="<?= base_url('login') ?>" class="main-btn btn-hover btn-success">
-                                         Login
-                                    </a>
+                                    <a href="<?= base_url('login') ?>" class="main-btn btn-hover btn-success">Login</a>
                                 <?php endif; ?>
                             </div>
-						</nav>
+                        </nav>
 						<!-- navbar -->
 					</div>
 				</div>
